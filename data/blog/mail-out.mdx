@@ -1,0 +1,54 @@
+---
+title: Mail Out
+date: '2021-03-21'
+draft: false
+summary: How to get mail traffic in and out of a residential network 😄
+---
+
+Here are some quick notes on how I used iptables and kernel IP routing to get my home server's outgoing mail out over a wireguard VPN connection.
+
+The idea is to mark packets coming from the docker subnet destined for port 25 and route them over the vpn interface.
+
+This effectively bypasses the ISP blocking outgoing connections to port 25.
+
+**Notes**
+
+- The mark chosen, 1, is arbitrary. You can use any hex value, i.e. 0x25
+- The iproute table name and priority are also arbitrary, you can use anything you like as long as it doesn't conflict with existing tables.
+
+You can check for existing route tables with `cat /etc/iproute2/rt_tables`
+
+```
+#
+# reserved values
+#
+255	local
+254	main
+253	default
+0	unspec
+#
+# local
+#
+#1	inr.ruhep
+201 mail.out # only after the following steps would this line be present
+```
+
+**Mark those mail packets**
+
+> 172.16.0.0/12 covers the entire range of 172.16.x.x which is the subnet my mail specific containers are in.
+
+`iptables -A PREROUTING -t mangle -s 172.16.0.0/12 -p tcp --dport 25 -j MARK --set-mark 1`
+
+**Create table for outgoing mail**
+
+`echo 201 mail.out >> /etc/iproute2/rt_tables`
+
+**Add rule to filter packets with the firewall mark to our new table**
+
+`ip rule add fwmark 1 table mail.out`
+
+**Add default route for marked packets over the wireguard interface**
+
+> 10.0.1.1 is the upstream peer on the vpn and wg0 is my vpn interface, you can change these to match whatever vpn connection you have available.
+
+`ip route add default via 10.0.1.1 dev wg0 table mail.out`
