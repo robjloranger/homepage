@@ -9,7 +9,7 @@ const siteMetadata = {
   theme: 'system', // system, dark or light
   siteUrl: 'https://robloranger.ca',
   siteLogo: `${process.env.BASE_PATH || ''}/static/images/logo.png`,
-  socialBanner: `${process.env.BASE_PATH || ''}/static/images/twitter-card.png`,
+  socialBanner: `${process.env.BASE_PATH || ''}/static/images/oakbrace.png`,
   // mastodon: 'https://mastodon.social/@mastodonuser',
   email: 'rob@loranger.xyz',
   github: 'https://github.com/robjloranger',
