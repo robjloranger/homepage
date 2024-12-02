@@ -7,8 +7,6 @@ import SectionContainer from '@/components/SectionContainer'
 import Image from '@/components/Image'
 import siteMetadata from '@/data/siteMetadata'
 
-const editUrl = (path) => `${siteMetadata.siteRepo}/blob/main/data/${path}`
-
 const postDateTemplate: Intl.DateTimeFormatOptions = {
   weekday: 'long',
   year: 'numeric',
