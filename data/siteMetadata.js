@@ -4,6 +4,7 @@ const siteMetadata = {
   author: 'Rob Loranger',
   headerTitle: 'Rob Loranger',
   description: 'Documenting adventures in software development.',
+  blurb: 'Welcome to my homepage and blog. You can also find projects I have planned, finished or am currently working on. Feel free to reach out if you want to chat or have any questions.',
   language: 'en-us',
   theme: 'system', // system, dark or light
   siteUrl: 'https://robloranger.ca',
