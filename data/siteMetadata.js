@@ -1,8 +1,8 @@
 /** @type {import("pliny/config").PlinyConfig } */
 const siteMetadata = {
-  title: 'Homepage of Robbie Loranger',
-  author: 'Robbie Loranger',
-  headerTitle: 'Robbie Loranger',
+  title: 'Homepage of Rob Loranger',
+  author: 'Rob Loranger',
+  headerTitle: 'Rob Loranger',
   description: 'Documenting adventures in software development.',
   language: 'en-us',
   theme: 'system', // system, dark or light
