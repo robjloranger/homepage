@@ -9,7 +9,7 @@ export default function Home({ posts }) {
     <>
       <div className="divide-y divide-gray-200 dark:divide-gray-700">
         <div className="space-y-2 pb-8 pt-6 md:space-y-5">
-          <p className="text-lg leading-7 text-gra  y-500 dark:text-gray-400">
+          <p className="text-gra y-500 text-lg leading-7 dark:text-gray-400">
             {siteMetadata.blurb}
           </p>
         </div>
