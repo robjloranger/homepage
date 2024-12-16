@@ -10,6 +10,11 @@ const projectsData: Project[] = [
     title: 'Online Shop',
     description: `Coming soon: a basic online storefront that has inventory management and payment processing.`,
     imgSrc: '',
+  }, {
+    title: 'The Odin Project',
+    description: `Various projects completed during The Odin Project Fundamentals and Full Stack Javascript pathways.`,
+    imgSrc: '/static/images/odin-project.png',
+    href: '/blog/odin-project',
   },
   // {
   //   title: 'The Time Machine',
